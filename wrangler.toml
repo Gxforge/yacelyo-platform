@@ -1,0 +1,17 @@
+name = "yacelyo-platform"
+type = "javascript"
+account_id = "665fb2e43961e57d2f22283c6dec7d5c"
+workers_dev = true
+compatibility_date = "2024-01-01"
+
+[env.production]
+name = "yacelyo-platform-prod"
+
+[[env.production.d1_databases]]
+binding = "DB"
+database_name = "yacelyo-db"
+database_id = "yacelyo-db-prod"
+
+[[env.production.r2_buckets]]
+binding = "R2"
+bucket_name = "yacelyo-media"
