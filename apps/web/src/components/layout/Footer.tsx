@@ -57,7 +57,7 @@ export function Footer() {
         </div>
 
         <div className="border-t border-neutral-800 mt-10 pt-6 flex flex-col lg:flex-row justify-between gap-4 text-xs text-neutral-500">
-          <div>© 2026 YACELYO. Todos los derechos reservados. Plataforma migrada desde mitarjeta.biz hacia infraestructura propia.</div>
+          <div>© 2026 YACELYO. Todos los derechos reservados. Tienda oficial YACELYO en Matanzas.</div>
           <div className="flex gap-4">
             <span>Pagos: USD — MLC — CUP — Zelle — Tropipay</span>
             <span>Envíos: Matanzas 24H — Cuba 48/72H</span>

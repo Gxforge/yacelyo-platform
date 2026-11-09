@@ -30,30 +30,30 @@ export default function CartPage() {
   const whatsappLink = getWhatsAppLink('5358739063', message);
 
   return (
-    <div className="max-w-[1440px] mx-auto px-3 lg:px-6 py-4 lg:py-6 grid lg:grid-cols-[1fr_380px] gap-4 lg:gap-6 bg-[#fafafa] min-h-screen">
+    <div className="max-w-[1440px] mx-auto px-4 lg:px-6 py-4 lg:py-6 grid lg:grid-cols-[1fr_380px] gap-4 lg:gap-6 bg-[#fafafa] min-h-screen">
       <div className="bg-white border border-neutral-200 p-4 lg:p-6">
         <h1 className="text-sm font-black tracking-widest uppercase">Carrito — {count} productos</h1>
         <div className="divide-y divide-neutral-200 mt-4">
           {items.map((item) => (
-            <div key={item.id} className="py-4 flex gap-3 lg:gap-4">
+            <div key={item.id} className="py-4 flex gap-3 lg:gap-4 items-start">
               <div className="w-20 h-20 lg:w-24 lg:h-24 bg-neutral-50 border border-neutral-200 relative shrink-0">
                 <Image src={item.images[0]} alt={item.title} fill className="object-contain p-2" />
               </div>
-              <div className="flex-1 min-w-0">
+              <div className="flex-1 min-w-0 pr-2">
                 <div className="text-sm font-medium leading-tight line-clamp-2">{item.title}</div>
                 <div className="text-xs text-neutral-500 mt-1">SKU {item.sku} — Stock {item.stock}</div>
-                <div className="mt-2 flex items-center gap-2">
+                <div className="mt-2 flex items-center gap-2 flex-wrap">
                   <div className="flex items-center border border-neutral-300">
-                    <button onClick={() => updateQuantity(item.id, item.quantity - 1)} className="w-9 h-9 grid place-items-center hover:bg-neutral-100" aria-label="Disminuir"><Minus className="w-3.5 h-3.5" /></button>
+                    <button onClick={() => updateQuantity(item.id, item.quantity - 1)} className="w-10 h-10 grid place-items-center hover:bg-neutral-100 active:bg-neutral-200" aria-label="Disminuir"><Minus className="w-3.5 h-3.5" /></button>
                     <span className="w-8 text-center text-sm font-semibold">{item.quantity}</span>
-                    <button onClick={() => updateQuantity(item.id, item.quantity + 1)} className="w-9 h-9 grid place-items-center hover:bg-neutral-100" aria-label="Aumentar"><Plus className="w-3.5 h-3.5" /></button>
+                    <button onClick={() => updateQuantity(item.id, item.quantity + 1)} className="w-10 h-10 grid place-items-center hover:bg-neutral-100 active:bg-neutral-200" aria-label="Aumentar"><Plus className="w-3.5 h-3.5" /></button>
                   </div>
-                  <button onClick={() => removeItem(item.id)} className="text-xs text-red-600 flex items-center gap-1 hover:underline min-h-[36px] px-2"><Trash2 className="w-3.5 h-3.5" /> Quitar</button>
+                  <button onClick={() => removeItem(item.id)} className="text-xs text-red-600 flex items-center gap-1 hover:underline min-h-[40px] px-3 active:bg-red-50"><Trash2 className="w-3.5 h-3.5" /> Quitar</button>
                 </div>
               </div>
-              <div className="text-right shrink-0">
+              <div className="text-right shrink-0 pl-2 pr-1">
                 {item.price === 0 ? (
-                  <div className="text-sm font-bold text-[#007600]">Consultar</div>
+                  <div className="text-sm font-bold text-[#007600] pr-1">Consultar</div>
                 ) : (
                   <>
                     <div className="text-sm font-bold">${(item.price * item.quantity).toFixed(2)}</div>

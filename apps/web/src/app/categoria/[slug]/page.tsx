@@ -30,7 +30,7 @@ export default function CategoryPage({ params }: { params: { slug: string } }) {
       <div className="mt-3 lg:mt-4 bg-white border border-neutral-200 p-4 lg:p-6 flex flex-col lg:flex-row lg:items-center justify-between gap-3">
         <div className="min-w-0">
           <h1 className="text-lg lg:text-2xl font-black tracking-tight uppercase truncate">{category.name}</h1>
-          <p className="text-xs lg:text-sm text-neutral-600 mt-1">{display.length} productos — {category.count} en total migrados desde mitarjeta.biz</p>
+          <p className="text-xs lg:text-sm text-neutral-600 mt-1">{display.length} productos disponibles</p>
         </div>
         <div className="flex gap-2 shrink-0">
           <div className="relative flex-1 lg:flex-none">
@@ -88,8 +88,8 @@ export default function CategoryPage({ params }: { params: { slug: string } }) {
         <div>
           {display.length === 0 ? (
             <div className="bg-white border border-neutral-200 p-8 text-center">
-              <div className="text-sm font-bold uppercase tracking-widest">Categoría en migración</div>
-              <p className="text-sm text-neutral-600 mt-2">Estamos migrando los {category.count} productos de {category.name} desde mitarjeta.biz. Vuelve en 24h.</p>
+              <div className="text-sm font-bold uppercase tracking-widest">Sin productos</div>
+              <p className="text-sm text-neutral-600 mt-2">No hay productos en esta categoría por el momento.</p>
             </div>
           ) : (
             <ProductGrid products={display} />

@@ -24,3 +24,21 @@ html, body { overflow-x: hidden; }
 button, a { -webkit-tap-highlight-color: rgba(0,0,0,0.1); }
 input, select { font-size: 16px; }
 @media (min-width: 1024px) { input, select { font-size: 14px; } }
+
+/* Botones con feedback táctil visible - cliente sabe donde hizo click */
+button, a[class*="bg-"], a[class*="border"] {
+  transition: transform 0.1s ease, background-color 0.15s ease, opacity 0.15s ease, border-color 0.15s ease;
+}
+button:active, a:active {
+  transform: scale(0.97);
+  opacity: 0.92;
+}
+button:active.bg-black, a:active.bg-black { background-color: #262626; }
+button:active.bg-white, a:active.bg-white { background-color: #f3f3f3; }
+button:active[class*="bg-[#ffd814"] { background-color: #f7ca00; }
+button:active[class*="bg-[#25D366"] { filter: brightness(0.9); }
+
+/* Evita texto pegado al borde en Android - safe padding */
+@media (max-width: 640px) {
+  .safe-px { padding-left: max(16px, env(safe-area-inset-left)); padding-right: max(16px, env(safe-area-inset-right)); }
+}
